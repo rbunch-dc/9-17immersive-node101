@@ -27,6 +27,10 @@ var http = require('http');
 // createServer is a method of the http object.
 // It takes 1 argument, the function to run when someone connects via HTTP
 var server = http.createServer((req, res)=>{
+	console.log(req);
+
+	// str = "Hi" + {name: "Rob" } = WAT
+
 	// console.log(req);
 	// console.log(req.rawHeaders[0]);
 	// for(let i = 0; i<req.rawHeaders.length; i++){
@@ -36,9 +40,9 @@ var server = http.createServer((req, res)=>{
 	// writeHead sets the HTTP headers, 2 args
 	// 1. status code
 	// 2. mime type
-	// res.writeHead(200,{'content-type':'text/html'});
-	res.writeHead(200,{'content-type':'text/text'});
-	res.write("<h1>Hello, intrepid traveler. This is actually YOUR node server.Hope you are having a good day</h1>");
+	res.writeHead(200,{'content-type':'text/html'});
+	// res.writeHead(200,{'content-type':'text/text'});
+	res.write("<script>alert('hello')</script><h1>Hello, intrepid traveler. This is actually YOUR node server.Hope you are having a good day</h1>");
 	res.end();
 });
 
